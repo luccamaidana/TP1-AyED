@@ -30,13 +30,22 @@ def pantalla_locales():
     print("d- Volver")
 pantalla_locales()
 
+#PANTALLA RUBRO
+def pantalla_rubro():
+    print("Ingrese el rubro 1-3.")
+    print("1. Indumentaria")
+    print("2. Perfumería")
+    print("3. Comida")
+    rubroLocal = input()
+pantalla_locales()
 
 #CREAR LOCALES
-while (nombreLocal!= "*"):
-    mostrar_creacio()
-    nombreLocal = input("Ingrese el nombre")
-    ubicacionLocal = input("Ingrese la ubicacion")
-    select_rubro()
+print ("Creación de locales.")
+nombreLocal = input("Ingrese un nombre para el local. Para finalizar la creación de locales ingrese * ")
+while nombreLocal != "*":
+    ubicacionLocal = input("Igrese la ubicacion del local ")
+    select_rubro() 
+    nombreLocal = input("Ingrese un nombre para el local. Para finalizar la creación de locales ingrese * ")
 comparacion_may()
 comparacion_min()
 exh_loc_may()
@@ -44,6 +53,6 @@ exh_loc_min()
 print("Para salir pulse 0. Para volver pulse 1.")
 valid_salida()
 if salida == 0 :
-    Salir
+    salir()
 else:
-    Menu 
+    menu()
