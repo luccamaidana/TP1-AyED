@@ -1,7 +1,5 @@
-@ -1,23 +1,23 @@
 #TP1
 global nombreUsuario ; claveUsuario ; password; cont; opc; opcloc; opcnov; rub1; rub2;rub3 ; rubroLocal ; mayRub ; minRub ; indu ; perfu ; comi ; nombreLocal
-global nombreUsuario ; claveUsuario ; password; cont; opc; opcloc; opcnov; rub1; rub2;rub3 ; rubroLocal ; mayRub ; minRub ; indu ; perfu ; comi ; nombreLocal ;
 #INICIO
 nombreUsuario = "admin@shopping.com"		
 claveUsuario = "12345"		
