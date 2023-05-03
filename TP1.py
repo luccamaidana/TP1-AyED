@@ -18,6 +18,6 @@ indu = 'indumentaria'
 perfu = "perfumería"		
 comi = "comida"		
 nombreLocal = " "		
-#PRUEBA 
+#PRUEBA 2  
 
     
