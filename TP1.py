@@ -21,6 +21,7 @@ nombreLocal = " "
 ubicacionLocal = " "
 salida = 0	
 
+#PANTALLA LOCALES
 def pantalla_locales():
     print("Ingrese una opción a-d")
     print("a- Crear locales")
@@ -30,7 +31,7 @@ def pantalla_locales():
 pantalla_locales()
 
 
-
+#CREAR LOCALES
 while (nombreLocal!= "*"):
     mostrar_creacio()
     nombreLocal = input("Ingrese el nombre")
