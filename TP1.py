@@ -21,7 +21,10 @@ nombreLocal = " "
 
 def pantalla_novedades():
   print("Ingrese una opción a-e")
-  print("Ingrese una opción a-e")
+  print("a- Crear novedades")
+  print("b- Modificar novedades")
+  print("c- Eliminar novedades ")
+  print("d- Ver reportes")
+  print("e - Volver")
 
 pantalla_novedades()
-    
