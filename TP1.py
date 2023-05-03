@@ -23,7 +23,7 @@ func main() {
     fmt.Println("Not a weekday")
   }
 <<<<<<< HEAD
-
+print "hola que tal"
 =======
 } hola
 dctgyrhfjbn fctd
