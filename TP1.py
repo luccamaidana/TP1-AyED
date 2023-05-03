@@ -1,5 +1,5 @@
 print "hola como estas"
 if "hola como estas > hola"
 else if :
-  pass aja
+  pass aja lol
   
