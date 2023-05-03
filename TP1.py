@@ -1,27 +1,22 @@
-package main
-import ("fmt")
-
-func main() {
-  day := 8
-
-  switch day {
-  case 1:
-    fmt.Println("Monday")
-  case 2:
-    fmt.Println("Tuesday")
-  case 3:
-    fmt.Println("Wednesday")
-  case 4:
-    fmt.Println("Thursday")
-  case 5:
-    fmt.Println("Friday")
-  case 6:
-    fmt.Println("Saturday")
-  case 7:
-    fmt.Println("Sunday")
-  default:
-    fmt.Println("Not a weekday")
-  }
-} hola
-dctgyrhfjbn fctd
-jola
+@ -1,23 +1,23 @@
+#TP1
+global nombreUsuario ; claveUsuario ; password; cont; opc; opcloc; opcnov; rub1; rub2;rub3 ; rubroLocal ; mayRub ; minRub ; indu ; perfu ; comi ; nombreLocal
+global nombreUsuario ; claveUsuario ; password; cont; opc; opcloc; opcnov; rub1; rub2;rub3 ; rubroLocal ; mayRub ; minRub ; indu ; perfu ; comi ; nombreLocal ;
+#INICIO
+nombreUsuario = "admin@shopping.com"		
+claveUsuario = "12345"		
+password = " "		
+cont = 0		
+opc = 1		
+opcloc = " "		
+opcnov = " "		
+rub1 = 0		
+rub2 = 0		
+rub3 = 0		
+rubroLocal = 0		
+mayRub = 0		
+minRub = 0		
+indu = 'indumentaria'		
+perfu = "perfumería"		
+comi = "comida"		
+nombreLocal = " "		
