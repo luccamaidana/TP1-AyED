@@ -22,4 +22,4 @@ func main() {
   default:
     fmt.Println("Not a weekday")
   }
-}
+} hola
