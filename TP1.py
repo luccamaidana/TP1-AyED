@@ -1,5 +1,6 @@
-print "hola como estas"
-if "hola como estas > hola"
-else if :
-  pass aja lol
-  
+range (nombre == nombreUsuario AND password)
+cont == cont + 1
+print ("ingrese un nombre de usuario: ")
+input (nombre)
+print ("ingrese su contraseña")
+mascara-leer
