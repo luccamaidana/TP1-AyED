@@ -17,7 +17,12 @@ minRub = 0
 indu = 'indumentaria'		
 perfu = "perfumería"		
 comi = "comida"		
-nombreLocal = " "		
-#PRUEBA 2  
-
-    
+nombreLocal = " "
+def pantalla():
+    print("Ingrese una opcion 0-5")
+    print("Gestión de locales")
+    print("Crear cuentas de dueños de locales")
+    print(" Aprobar / Denegar solicitud de descuento")
+    print("Gestión de novedades")
+    print("Reporte de utilización de descuentos")
+    print("Fin de programa")
