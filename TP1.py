@@ -1,5 +1,5 @@
 #TP1
-global nombreUsuario ; claveUsuario ; password; cont; opc; opcloc; opcnov; rub1; rub2;rub3 ; rubroLocal ; mayRub ; minRub ; indu ; perfu ; comi ; nombreLocal ;
+global nombreUsuario , claveUsuario  password; cont; opc; opcloc; opcnov; rub1; rub2;rub3 ; rubroLocal ; mayRub ; minRub ; indu ; perfu ; comi ; nombreLocal ;
 #INICIO
 nombreUsuario = "admin@shopping.com"		
 claveUsuario = "12345"		
@@ -19,4 +19,9 @@ perfu = "perfumería"
 comi = "comida"		
 nombreLocal = " "		
 
+def pantalla_novedades():
+  print("Ingrese una opción a-e")
+  print("Ingrese una opción a-e")
+
+pantalla_novedades()
     
