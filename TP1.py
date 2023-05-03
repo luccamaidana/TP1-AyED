@@ -23,3 +23,4 @@ func main() {
     fmt.Println("Not a weekday")
   }
 } hola
+dctgyrhfjbn fctd
