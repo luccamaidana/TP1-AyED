@@ -1,33 +1,51 @@
-<<<<<<< Updated upstream
 #TP1
-=======
-package main
-import ("fmt")
+global nombreUsuario, claveUsuario, password, con, opc, opcloc, opcnov, rub1, rub2, rub3, rubroLocal, mayRub, minRub, indu, perfu, comi, nombreLocal
+#INICIO
+nombre = " "
+nombreUsuario = "admin@shopping.com"		
+claveUsuario = "12345"		
+password = " "		
+cont = 0		
+opc = 1		
+opcloc = " "		
+opcnov = " "		
+rub1 = 0		
+rub2 = 0		
+rub3 = 0		
+rubroLocal = 0		
+mayRub = 0		
+minRub = 0		
+indu = 'indumentaria'		
+perfu = "perfumería"		
+comi = "comida"		
+nombreLocal = " "		
+import sys
+import maskpass
 
-func main() {
-  day := 8
+def menu():
+    print("prueba1")
+menu()
 
-  switch day {
-  case 1:
-    fmt.Println("Monday")
-  case 2:
-    fmt.Println("Tuesday")
-  case 3:
-    fmt.Println("Wednesday")
-  case 4:
-    fmt.Println("Thursday")
-  case 5:
-    fmt.Println("Friday")
-  case 6:
-    fmt.Println("Saturday")
-  case 7:
-    fmt.Println("Sunday")
-  default:
-    fmt.Println("Not a weekday")
-  }
-} hola
-dctgyrhfjbn fctd
-jola
-como va
-gaston gay
->>>>>>> Stashed changes
+def mascara_leer():
+    password = maskpass.askpass(prompt="Ingresar contraseña: ", mask="*")
+    return str(password)
+
+
+def logueo():
+    nombre = input("Ingresar nombre de usuario: ")
+
+    while(nombre != nombreUsuario and cont < 3):
+        cont = cont + 1
+        nombre = input("Nombre de usuario incorrecto. Ingrese el nombre de usuario: ")
+
+    if cont == 3:
+        print("Demasiados intentos. Saliendo del programa.")
+
+    password = mascara_leer()
+
+    if(password == claveUsuario):
+        menu()
+
+    else:
+        print("Usuario o contraseña incorrectos.")
+logueo()
