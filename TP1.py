@@ -28,12 +28,10 @@ def logueo():
     while cont!=3 and correcto!=1:
         if(nombre==nombreUsuario and password==claveUsuario):
             correcto=1
-            print("correcto",correcto)
         else:
             nombre=input("Ingrese el nombre:")
             password=input("Ingrese la contraseña:")
             cont=cont+1
-            print("contar",cont)
     entro()
 
 def entro():
