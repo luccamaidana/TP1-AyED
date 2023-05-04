@@ -1,5 +1,5 @@
 #TP1
-global nombreUsuario , claveUsuario , password, con, opc, opcloc, opcnov, rub1, rub2, rub3, rubroLocal, mayRub, minRub, indu, perfu, comi, nombreLocal
+global nombreUsuario , claveUsuario , password, cont, opc, opcloc, opcnov, rub1, rub2, rub3, rubroLocal, mayRub, minRub, indu, perfu, comi, nombreLocal
 #INICIO
 nombreUsuario = "admin@shopping.com"		
 claveUsuario = "12345"		
@@ -28,7 +28,7 @@ def pantalla_locales():
     print("b- Modificar local")
     print("c- Eliminar local")
     print("d- Volver")
-pantalla_locales()
+
 
 #PANTALLA RUBRO
 def pantalla_rubro():
@@ -37,7 +37,7 @@ def pantalla_rubro():
     print("2. Perfumería")
     print("3. Comida")
     rubroLocal = input()
-pantalla_locales()
+
 
 #CREAR LOCALES
 def crear_locales():
@@ -57,23 +57,51 @@ def crear_locales():
         gestion_locales()
     else:
         menu()
-crear_locales()
 
-#GESTION LOCALES (creo q esta mal)
+
+#VALID OPC LOC
+def valid_opc_loc():
+    global opcloc
+    opcloc = input()
+    while opcloc != "a" and opcloc != "b" and opcloc != "c" and opcloc != "d":
+        opcloc = input("Mal ingresado. Repetir opción. OPCION: ")
+#VALID OPC NOV
+def valid_opc_nov():
+    global opcnov
+    opcnov = input()
+    while opcnov != "a" and opcnov != "b" and opcnov != "c" and opcnov != "d" and opcnov != "e":
+        opcloc = input("Mal ingresado. Repetir opción. OPCION: ")
+
+#GESTION LOCALES 
 def gestion_locales():  
     pantalla_locales()
-    opcloc = input()
-    while opcloc != "d":
-        valid_opc_loc()
-        match opcloc:
-             case "a":
-                crear_locales()
-             case "b":
-                print("En construcción")
-             case "c":
-                print("En construcción")
-             case "d":
-                menu()
-    pantalla_locales()
-    opcloc = input()
+    valid_opc_loc()
+    match opcloc:
+        case "a":
+            crear_locales()
+        case "b":
+            print("\nEn construcción...")
+            gestion_locales()
+        case "c":
+            print("\nEn construcción...")
+            gestion_locales()
+        case "d":
+            menu()
 gestion_locales()
+
+#GESTION NOVEDADES
+def gestion_novedades():
+    pantalla_novedades()
+    valid_opc_nov()
+    match opcnov:
+        case "a":
+            print("\nEn construcción...")
+        case "b":
+            print("\nEn construcción...")
+        case "c":
+            print("\nEn construcción...")
+        case "d":
+            print("\nEn construcción...")
+        case "e":
+            menu()
+gestion_novedades()
