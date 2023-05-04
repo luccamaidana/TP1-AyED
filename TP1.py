@@ -102,12 +102,16 @@ def gestion_novedades():
     match opcnov:
         case "a":
             print("\nEn construcción...")
+            gestion_novedades()
         case "b":
             print("\nEn construcción...")
+            gestion_novedades()
         case "c":
             print("\nEn construcción...")
+            gestion_novedades()
         case "d":
             print("\nEn construcción...")
+            gestion_novedades()
         case "e":
             menu()
 gestion_novedades()
