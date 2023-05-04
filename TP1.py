@@ -2,8 +2,8 @@ global nombreUsuario , claveUsuario , password, con, opc, opcloc, opcnov, rub1, 
 #INICIO
 correcto=0
 cont=1
-nombreUsuario = "1"		
-claveUsuario = "2"		
+nombreUsuario = "admin@shopping.com"		
+claveUsuario = "12345"		
 password = " "				
 #opc = 1		
 opcloc = " "		
@@ -21,7 +21,7 @@ nombreLocal = " "
 
 
 
-def poronga():
+def logueo():
     global correcto,cont
     nombre=input("Ingrese el nombre:")
     password=input("Ingrese la contraseña:")
@@ -84,4 +84,4 @@ def menu():
       case 0:
         print("En construcción…")
 
-poronga()
+logueo()
