@@ -38,6 +38,12 @@ def pantalla_rubro():
     print("3. Comida")
     rubroLocal = input()
 
+#VALID SALIDA
+def valid_salida():
+    global salida
+    salida = input()
+    while salida != "0" and salida != "1":
+        salida = input("Mal ingresado. Repetir opción. OPCION: ")
 
 #CREAR LOCALES
 def crear_locales():
