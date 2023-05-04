@@ -5,7 +5,7 @@ nombreUsuario = "admin@shopping.com"
 claveUsuario = "12345"		
 password = " "		
 cont = 0		
-opc = 1		
+#opc = 1		
 opcloc = " "		
 opcnov = " "		
 rub1 = 0		
@@ -39,6 +39,7 @@ def pantalla():
     print("0_ Fin de programa\n")
 
 def valid_opc():
+   global opc
    opc = int(input("OPCION: "))
    while opc != 1 and opc != 2 and opc != 3 and opc != 4 and opc != 5 and opc != 0:
       opc = int(input("Mal ingresado. Repetir opción. OPCION: "))
@@ -59,6 +60,4 @@ def menu():
         print("En construcción…")
       case 0:
         print("En construcción…")
-      case other: 
-        print("wtf")
 menu()
