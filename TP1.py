@@ -1,11 +1,11 @@
 #TP1
-global nombreUsuario , claveUsuario , password, cont, opc, opcloc, opcnov, rub1, rub2, rub3, rubroLocal, mayRub, minRub, indu, perfu, comi, nombreLocal
+global nombreUsuario , claveUsuario , password, opc, cont, opcloc, opcnov, rub1, rub2, rub3, rubroLocal, mayRub, minRub, indu, perfu, comi, nombreLocal
 #INICIO
 nombreUsuario = "admin@shopping.com"		
 claveUsuario = "12345"		
 password = " "		
 cont = 0		
-#opc = 1		
+opc = 1		
 opcloc = " "		
 opcnov = " "		
 rub1 = 0		
@@ -19,6 +19,7 @@ perfu = "perfumería"
 comi = "comida"		
 nombreLocal = " "		
 
+
 def pantalla_novedades():
   print("Ingrese una opción a-e")
   print("a- Crear novedades")
@@ -30,7 +31,7 @@ def pantalla_novedades():
 #pantalla_novedades()
 
 def pantalla():
-    print("Ingrese una opcion 0-5")
+    print("Ingrese una opcion 0-5\n")
     print("1_ Gestión de locales")
     print("2_ Crear cuentas de dueños de locales")
     print("3_ Aprobar / Denegar solicitud de descuento")
@@ -49,15 +50,18 @@ def menu():
   valid_opc()
   match opc:
       case 1:
-        print("Gestión local")
+        print("Gestión de locales\n")
       case 2:
-       print("En construcción…")
+       print("En construcción…\n")
+       menu()
       case 3:
-       print("En construcción…")
+       print("En construcción…\n")
+       menu()
       case 4:
-         print("Gestion local")
+         print("Gestión de novedades\n")
       case 5:
-        print("En construcción…")
+        print("En construcción…\n")
+        menu()
       case 0:
-        print("En construcción…")
+        print("Saliendo...")
 menu()
