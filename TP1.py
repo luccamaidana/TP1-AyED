@@ -40,19 +40,40 @@ def pantalla_rubro():
 pantalla_locales()
 
 #CREAR LOCALES
-print ("Creación de locales.")
-nombreLocal = input("Ingrese un nombre para el local. Para finalizar la creación de locales ingrese * ")
-while nombreLocal != "*":
-    ubicacionLocal = input("Igrese la ubicacion del local ")
-    select_rubro() 
+def crear_locales():
+    print ("Creación de locales.")
     nombreLocal = input("Ingrese un nombre para el local. Para finalizar la creación de locales ingrese * ")
-comparacion_may()
-comparacion_min()
-exh_loc_may()
-exh_loc_min()
-print("Para salir pulse 0. Para volver pulse 1.")
-valid_salida()
-if salida == 0 :
-    salir()
-else:
-    menu()
+    while nombreLocal != "*":
+        ubicacionLocal = input("Igrese la ubicacion del local ")
+        select_rubro() 
+        nombreLocal = input("Ingrese un nombre para el local. Para finalizar la creación de locales ingrese * ")
+    comparacion_may()
+    comparacion_min()
+    exh_loc_may()
+    exh_loc_min()
+    print("Para salir pulse 0. Para volver pulse 1.")
+    valid_salida()
+    if salida == 0 :
+        gestion_locales()
+    else:
+        menu()
+crear_locales()
+
+#GESTION LOCALES (creo q esta mal)
+def gestion_locales():  
+    pantalla_locales()
+    opcloc = input()
+    while opcloc != "d":
+        valid_opc_loc()
+        match opcloc:
+             case "a":
+                crear_locales()
+             case "b":
+                print("En construcción")
+             case "c":
+                print("En construcción")
+             case "d":
+                menu()
+    pantalla_locales()
+    opcloc = input()
+gestion_locales()
