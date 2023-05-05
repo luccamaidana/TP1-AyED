@@ -20,6 +20,35 @@ def inicio():
     comi = "comida"		
     nombreLocal = " "	
 
+#pantallas
+#pantalla_novedades
+def pantalla_novedades():
+  print("Ingrese una opción a-e")
+  print("a- Crear novedades")
+  print("b- Modificar novedades")
+  print("c- Eliminar novedades ")
+  print("d- Ver reportes")
+  print("e - Volver")
+
+#pantalla
+def pantalla():
+    print("Ingrese una opcion 0-5\n")
+    print("1_ Gestión de locales")
+    print("2_ Crear cuentas de dueños de locales")
+    print("3_ Aprobar / Denegar solicitud de descuento")
+    print("4_ Gestión de novedades")
+    print("5_ Reporte de utilización de descuentos")
+    print("0_ Fin de programa\n")
+
+#validadores
+def valid_opc():
+   global opc
+   opc = int(input("OPCION: "))
+   while opc != 1 and opc != 2 and opc != 3 and opc != 4 and opc != 5 and opc != 0:
+      opc = int(input("Mal ingresado. Repetir opción. OPCION: "))
+
+#modulos principales
+#logueo
 def logueo():
     global correcto,cont
     nombre=input("Ingrese el nombre:")
@@ -39,16 +68,7 @@ def entro():
     else:
         print("se cierra")
 
-        #----
-        	
-
-
-def valid_opc():
-   global opc
-   opc = int(input("OPCION: "))
-   while opc != 1 and opc != 2 and opc != 3 and opc != 4 and opc != 5 and opc != 0:
-      opc = int(input("Mal ingresado. Repetir opción. OPCION: "))
-
+#menu
 def menu():
   pantalla()
   valid_opc()
