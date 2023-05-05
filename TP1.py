@@ -34,11 +34,10 @@ def pantalla():
     print("3_ Aprobar / Denegar solicitud de descuento")
     print("4_ Gestión de novedades")
     print("5_ Reporte de utilización de descuentos")
-    print("0_ Fin de programa\n")
+    print("0_ Fin de programa")
 
 #pantalla locales
 def pantalla_locales():
-    print("\nGestión de locales")
     print("Ingrese una opción a-d\n")
     print("a- Crear locales")
     print("b- Modificar local")
@@ -47,13 +46,13 @@ def pantalla_locales():
 
 #pantalla_novedades
 def pantalla_novedades():
-  print("pantalla_novedades")
-  print("Ingrese una opción a-e")
+  print("\nMENU Novedades")
+  print("Ingrese una opción a-e\n")
   print("a- Crear novedades")
   print("b- Modificar novedades")
   print("c- Eliminar novedades ")
   print("d- Ver reportes")
-  print("e - Volver")
+  print("e- Volver")
 
 #pantalla rubro
 def pantalla_rubro():
@@ -62,43 +61,109 @@ def pantalla_rubro():
     print("1. Indumentaria")
     print("2. Perfumería")
     print("3. Comida")
-    rubroLocal = input()
+
+#mostrar
+def mostrar1_may():
+  global indu, mayRub
+  print("El rubro con mayor cantidad de locales es:", indu, "con:", mayRub, "locales.")
+
+def mostrar2_may():
+  global perfu, mayRub
+  print("El rubro con mayor cantidad de locales es:", perfu, "con:", mayRub, "locales.")
+
+def mostrar3_may():
+  global comi, mayRub
+  print("El rubro con mayor cantidad de locales es: ", comi, "con: ", mayRub, "locales.")
+
+def mostrar1_min():
+  global indu, minRub
+  print("El rubro con menor cantidad de locales es: ", indu, "con: ", minRub, "locales.")
+
+def mostrar2_min():
+  global perfu, minRub
+  print("El rubro con menor cantidad de locales es: ", perfu, "con: ", minRub, "locales.")
+
+def mostrar3_min():
+  global comi, minRub
+  print("El rubro con menor cantidad de locales es: ", comi, "con: ", minRub, "locales.")
 
 #validadores
 #valid menu
 def valid_opc():
    global opc
-   opc = int(input("OPCION: "))
+   opc = int(input("\nOPCION: "))
    while opc != 1 and opc != 2 and opc != 3 and opc != 4 and opc != 5 and opc != 0:
       opc = int(input("Mal ingresado. Repetir opción. OPCION: "))
 
 #valid opc loc
 def valid_opc_loc():
     global opcloc
-    opcloc = input()
+    opcloc = input("\nOPCION: ")
+    opcloc = opcloc.lower()
     while opcloc != "a" and opcloc != "b" and opcloc != "c" and opcloc != "d":
         opcloc = input("Mal ingresado. Repetir opción. OPCION: ")
+        opcloc = opcloc.lower()
 
 #valid opc nov
 def valid_opc_nov():
     global opcnov
-    opcnov = input()
+    opcnov = input("\nOPCION: ")
+    opcnov = opcnov.lower()
     while opcnov != "a" and opcnov != "b" and opcnov != "c" and opcnov != "d" and opcnov != "e":
         opcnov = input("Mal ingresado. Repetir opción. OPCION: ")
+        opcnov = opcnov.lower()
 
 #valid select rubro
 def valid_selec_rubro():
     global rubroLocal
-    rubroLocal = input()
-    while rubroLocal != 1 and rubroLocal != 2 and rubroLocal != 3:
+    rubroLocal = input("\nOPCION: ")
+    while rubroLocal != "1" and rubroLocal != "2" and rubroLocal != "3":
         rubroLocal = input("Mal ingresado. Repetir opción. OPCION: ")
 
 #valid salida
 def valid_salida():
     global salida
-    salida = input()
+    salida = input("\nOPCION: ")
     while salida != "0" and salida != "1":
         salida = input("Mal ingresado. Repetir opción. OPCION: ")
+
+#comparadores
+def comparacion_may():
+    global mayRub,rub1,rub2,rub3
+    if rub1>rub2 and rub1>rub3:
+        mayRub=rub1
+    else:
+        if rub2>rub3:
+            mayRub=rub2
+        else:
+            mayRub=rub3
+
+def comparacion_min():
+    global minRub,rub1,rub2,rub3
+    if rub1<rub2 and rub1<rub3:
+        minRub=rub1
+    else:
+        if rub2<rub3:
+            minRub=rub2
+        else:
+            minRub=rub3
+
+def exh_loc_may():
+    global mayRub, rub1, rub2
+    if mayRub==rub1:
+      mostrar1_may()
+    elif mayRub==rub2:
+      mostrar2_may()
+    else:
+      mostrar3_may()
+
+def exh_loc_min():
+    if minRub==rub1:
+      mostrar1_min()
+    elif minRub==rub2:
+      mostrar2_min()
+    else:
+      mostrar3_min()
 
 #gestiones
 #gestion locales
@@ -116,7 +181,6 @@ def gestion_locales():
             gestion_locales()
         case "d":
             menu()
-gestion_locales()
 
 #gestion novedades
 def gestion_novedades():
@@ -137,18 +201,17 @@ def gestion_novedades():
             gestion_novedades()
         case "e":
             menu()
-gestion_novedades()
 
 #creaciones
 #crear locales
 def crear_locales():
     global ubicacionLocal
-    print ("Creación de locales.")
-    nombreLocal = input("Ingrese un nombre para el local. Para finalizar la creación de locales ingrese * ")
+    print ("\nCreación de locales")
+    nombreLocal = input("Ingrese un nombre para el local. Para finalizar ingrese *: ")
     while nombreLocal != "*":
-        ubicacionLocal = input("Igrese la ubicacion del local ")
+        ubicacionLocal = input("Ingrese la ubicacion del local: ")
         select_rubro() 
-        nombreLocal = input("Ingrese un nombre para el local. Para finalizar la creación de locales ingrese * ")
+        nombreLocal = input("Ingrese un nombre para el local. Para finalizar ingrese *: ")
     comparacion_may()
     comparacion_min()
     exh_loc_may()
@@ -156,22 +219,27 @@ def crear_locales():
     print("Para salir pulse 0. Para volver pulse 1.")
     valid_salida()
     if salida == 0 :
-        gestion_locales()
+        print("\nSaliendo...")
+        return 0
     else:
         menu()
 
 #selecciones
 #select rubro
 def select_rubro():
+    global rub1,rub2,rub3
     pantalla_rubro()
     valid_selec_rubro()
     match rubroLocal:
-        case 1:
+        case "1":
             rub1 = rub1 + 1
-        case 2:
+            crear_locales()
+        case "2":
             rub2 = rub2 + 1
-        case 3:
+            crear_locales()
+        case "3":
             rub3 = rub3 + 1
+            crear_locales()
 
 #modulos principales
 #logueo
@@ -191,8 +259,8 @@ def logueo():
     if(correcto==1):
         menu()
     else:
-       print("Saliendo...")
-       return
+       print("\nSaliendo...")
+       return 0
     
 #menu
 def menu():
@@ -200,24 +268,27 @@ def menu():
   valid_opc()
   match opc:
       case 1:
-        print("Gestión de locales\n")
+        print("\nGestión de locales")
         gestion_locales()
       case 2:
-       print("En construcción…\n")
+       print("\nEn construcción…")
        menu()
       case 3:
-       print("En construcción…\n")
+       print("\nEn construcción…")
        menu()
       case 4:
-         print("Gestión de novedades\n")
+         print("\nGestión de novedades")
+         gestion_novedades()
       case 5:
-        print("En construcción…\n")
+        print("\nEn construcción…")
         menu()
       case 0:
-        print("Saliendo...")
-        return
+        print("\nSaliendo...")
+        return 0
 
 def prog_prin():
+  print("          Shopping X\n")
+  print("Inicio:")
   inicio()
   logueo()
 
