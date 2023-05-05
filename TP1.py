@@ -115,3 +115,24 @@ def gestion_novedades():
         case "e":
             menu()
 gestion_novedades()
+
+
+#VALID SELECT RUBRO
+def valid_selec_rubro():
+    global rubroLocal
+    rubroLocal = input()
+    while rubroLocal != 1 and rubroLocal != 2 and rubroLocal != 3:
+        rubroLocal = input("Mal ingresado. Repetir opción. OPCION: ")
+
+#SELECT RUBRO
+def select_rubro():
+    pantalla_rubro()
+    valid_selec_rubro()
+    match rubroLocal:
+        case 1:
+            rub1 = rub1 + 1
+        case 2:
+            rub2 = rub2 + 1
+        case 3:
+            rub3 = rub3 + 1
+            
