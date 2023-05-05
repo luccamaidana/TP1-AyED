@@ -23,6 +23,7 @@ def inicio():
 #pantallas
 #pantalla_novedades
 def pantalla_novedades():
+  print("pantalla_novedades")
   print("Ingrese una opción a-e")
   print("a- Crear novedades")
   print("b- Modificar novedades")
@@ -32,6 +33,7 @@ def pantalla_novedades():
 
 #pantalla
 def pantalla():
+    print("pantalla")
     print("Ingrese una opcion 0-5\n")
     print("1_ Gestión de locales")
     print("2_ Crear cuentas de dueños de locales")
@@ -60,13 +62,14 @@ def logueo():
             nombre=input("Ingrese el nombre: ")
             password=input("Ingrese la contraseña: ")
             cont=cont+1
-    entro()
-    
-def entro():
+    if(nombre==nombreUsuario and password==claveUsuario):
+       correcto=1
     if(correcto==1):
+        print("acamaquina")
         menu()
     else:
-        print("Saliendo...")
+       return
+    
 
 #menu
 def menu():
@@ -93,6 +96,6 @@ def menu():
 def prog_prin():
   inicio()
   logueo()
-  menu()
+
 
 prog_prin()
