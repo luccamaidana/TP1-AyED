@@ -36,6 +36,15 @@ def pantalla():
     print("5_ Reporte de utilización de descuentos")
     print("0_ Fin de programa\n")
 
+#pantalla locales
+def pantalla_locales():
+    print("\nGestión de locales")
+    print("Ingrese una opción a-d\n")
+    print("a- Crear locales")
+    print("b- Modificar local")
+    print("c- Eliminar local")
+    print("d- Volver")
+
 #pantalla_novedades
 def pantalla_novedades():
   print("pantalla_novedades")
@@ -77,12 +86,92 @@ def valid_opc_nov():
     while opcnov != "a" and opcnov != "b" and opcnov != "c" and opcnov != "d" and opcnov != "e":
         opcnov = input("Mal ingresado. Repetir opción. OPCION: ")
 
+#valid select rubro
+def valid_selec_rubro():
+    global rubroLocal
+    rubroLocal = input()
+    while rubroLocal != 1 and rubroLocal != 2 and rubroLocal != 3:
+        rubroLocal = input("Mal ingresado. Repetir opción. OPCION: ")
+
 #valid salida
 def valid_salida():
     global salida
     salida = input()
     while salida != "0" and salida != "1":
         salida = input("Mal ingresado. Repetir opción. OPCION: ")
+
+#gestiones
+#gestion locales
+def gestion_locales():  
+    pantalla_locales()
+    valid_opc_loc()
+    match opcloc:
+        case "a":
+            crear_locales()
+        case "b":
+            print("\nEn construcción...")
+            gestion_locales()
+        case "c":
+            print("\nEn construcción...")
+            gestion_locales()
+        case "d":
+            menu()
+gestion_locales()
+
+#gestion novedades
+def gestion_novedades():
+    pantalla_novedades()
+    valid_opc_nov()
+    match opcnov:
+        case "a":
+            print("\nEn construcción...")
+            gestion_novedades()
+        case "b":
+            print("\nEn construcción...")
+            gestion_novedades()
+        case "c":
+            print("\nEn construcción...")
+            gestion_novedades()
+        case "d":
+            print("\nEn construcción...")
+            gestion_novedades()
+        case "e":
+            menu()
+gestion_novedades()
+
+#creaciones
+#crear locales
+def crear_locales():
+    global ubicacionLocal
+    print ("Creación de locales.")
+    nombreLocal = input("Ingrese un nombre para el local. Para finalizar la creación de locales ingrese * ")
+    while nombreLocal != "*":
+        ubicacionLocal = input("Igrese la ubicacion del local ")
+        select_rubro() 
+        nombreLocal = input("Ingrese un nombre para el local. Para finalizar la creación de locales ingrese * ")
+    comparacion_may()
+    comparacion_min()
+    exh_loc_may()
+    exh_loc_min()
+    print("Para salir pulse 0. Para volver pulse 1.")
+    valid_salida()
+    if salida == 0 :
+        gestion_locales()
+    else:
+        menu()
+
+#selecciones
+#select rubro
+def select_rubro():
+    pantalla_rubro()
+    valid_selec_rubro()
+    match rubroLocal:
+        case 1:
+            rub1 = rub1 + 1
+        case 2:
+            rub2 = rub2 + 1
+        case 3:
+            rub3 = rub3 + 1
 
 #modulos principales
 #logueo
@@ -133,89 +222,3 @@ def prog_prin():
   logueo()
 
 prog_prin()
-
-#----VALEN
-
-
-
-
-#CREAR LOCALES
-def crear_locales():
-    global ubicacionLocal
-    print ("Creación de locales.")
-    nombreLocal = input("Ingrese un nombre para el local. Para finalizar la creación de locales ingrese * ")
-    while nombreLocal != "*":
-        ubicacionLocal = input("Igrese la ubicacion del local ")
-        select_rubro() 
-        nombreLocal = input("Ingrese un nombre para el local. Para finalizar la creación de locales ingrese * ")
-    comparacion_may()
-    comparacion_min()
-    exh_loc_may()
-    exh_loc_min()
-    print("Para salir pulse 0. Para volver pulse 1.")
-    valid_salida()
-    if salida == 0 :
-        gestion_locales()
-    else:
-        menu()
-
-
-
-
-#GESTION LOCALES 
-def gestion_locales():  
-    pantalla_locales()
-    valid_opc_loc()
-    match opcloc:
-        case "a":
-            crear_locales()
-        case "b":
-            print("\nEn construcción...")
-            gestion_locales()
-        case "c":
-            print("\nEn construcción...")
-            gestion_locales()
-        case "d":
-            menu()
-gestion_locales()
-
-#GESTION NOVEDADES
-def gestion_novedades():
-    pantalla_novedades()
-    valid_opc_nov()
-    match opcnov:
-        case "a":
-            print("\nEn construcción...")
-            gestion_novedades()
-        case "b":
-            print("\nEn construcción...")
-            gestion_novedades()
-        case "c":
-            print("\nEn construcción...")
-            gestion_novedades()
-        case "d":
-            print("\nEn construcción...")
-            gestion_novedades()
-        case "e":
-            menu()
-gestion_novedades()
-
-
-#VALID SELECT RUBRO
-def valid_selec_rubro():
-    global rubroLocal
-    rubroLocal = input()
-    while rubroLocal != 1 and rubroLocal != 2 and rubroLocal != 3:
-        rubroLocal = input("Mal ingresado. Repetir opción. OPCION: ")
-
-#SELECT RUBRO
-def select_rubro():
-    pantalla_rubro()
-    valid_selec_rubro()
-    match rubroLocal:
-        case 1:
-            rub1 = rub1 + 1
-        case 2:
-            rub2 = rub2 + 1
-        case 3:
-            rub3 = rub3 + 1
