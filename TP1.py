@@ -1,4 +1,24 @@
-
+#INICIO
+def inicio():
+    global nombreUsuario , claveUsuario , password, con, opc, opcloc, opcnov, rub1, rub2, rub3, rubroLocal, mayRub, minRub, indu, perfu, comi, nombreLocal,cont,correcto
+    correcto=0
+    cont=1
+    nombreUsuario = "admin@shopping.com"		
+    claveUsuario = "12345"		
+    password = " "				
+    #opc = 1		
+    opcloc = " "		
+    opcnov = " "		
+    rub1 = 0		
+    rub2 = 0		
+    rub3 = 0		
+    rubroLocal = 0		
+    mayRub = 0		
+    minRub = 0		
+    indu = 'indumentaria'		
+    perfu = "perfumería"		
+    comi = "comida"		
+    nombreLocal = " "	
 
 def logueo():
     global correcto,cont
