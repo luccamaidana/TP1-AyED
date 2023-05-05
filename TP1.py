@@ -292,7 +292,7 @@ def menu():
 
 def prog_prin():
   print("          Shopping X\n")
-  print("Inicio:")
+  print("          Inicio")
   inicio()
   logueo()
 
