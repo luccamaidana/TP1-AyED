@@ -19,7 +19,7 @@ perfu = "perfumería"
 comi = "comida"		
 nombreLocal = " "		
 
-
+#pantalla_novedades
 def pantalla_novedades():
   print("Ingrese una opción a-e")
   print("a- Crear novedades")
@@ -28,8 +28,8 @@ def pantalla_novedades():
   print("d- Ver reportes")
   print("e - Volver")
 
-#pantalla_novedades()
 
+#pantalla
 def pantalla():
     print("Ingrese una opcion 0-5\n")
     print("1_ Gestión de locales")
