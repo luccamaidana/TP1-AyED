@@ -1,6 +1,6 @@
 #INICIO
 def inicio():
-    global nombreUsuario , claveUsuario , password, cont, opc, opcloc, opcnov, rub1, rub2, rub3, rubroLocal, mayRub, minRub, indu, perfu, comi, nombreLocal,cont,correcto
+    global nombreUsuario , ubicacionLocal, salida, claveUsuario , password, cont, opc, opcloc, opcnov, rub1, rub2, rub3, rubroLocal, mayRub, minRub, indu, perfu, comi, nombreLocal,cont,correcto
     correcto=0
     cont=1
     nombreUsuario = "admin@shopping.com"		
@@ -19,18 +19,12 @@ def inicio():
     perfu = "perfumería"		
     comi = "comida"		
     nombreLocal = " "	
+    salida = 0
+    ubicacionLocal = " "
+
+inicio()
 
 #pantallas
-#pantalla_novedades
-def pantalla_novedades():
-  print("pantalla_novedades")
-  print("Ingrese una opción a-e")
-  print("a- Crear novedades")
-  print("b- Modificar novedades")
-  print("c- Eliminar novedades ")
-  print("d- Ver reportes")
-  print("e - Volver")
-
 #pantalla
 def pantalla():
     print("\nMENU")
@@ -42,12 +36,53 @@ def pantalla():
     print("5_ Reporte de utilización de descuentos")
     print("0_ Fin de programa\n")
 
+#pantalla_novedades
+def pantalla_novedades():
+  print("pantalla_novedades")
+  print("Ingrese una opción a-e")
+  print("a- Crear novedades")
+  print("b- Modificar novedades")
+  print("c- Eliminar novedades ")
+  print("d- Ver reportes")
+  print("e - Volver")
+
+#pantalla rubro
+def pantalla_rubro():
+    global rubroLocal
+    print("Ingrese el rubro 1-3.")
+    print("1. Indumentaria")
+    print("2. Perfumería")
+    print("3. Comida")
+    rubroLocal = input()
+
 #validadores
+#valid menu
 def valid_opc():
    global opc
    opc = int(input("OPCION: "))
    while opc != 1 and opc != 2 and opc != 3 and opc != 4 and opc != 5 and opc != 0:
       opc = int(input("Mal ingresado. Repetir opción. OPCION: "))
+
+#valid opc loc
+def valid_opc_loc():
+    global opcloc
+    opcloc = input()
+    while opcloc != "a" and opcloc != "b" and opcloc != "c" and opcloc != "d":
+        opcloc = input("Mal ingresado. Repetir opción. OPCION: ")
+
+#valid opc nov
+def valid_opc_nov():
+    global opcnov
+    opcnov = input()
+    while opcnov != "a" and opcnov != "b" and opcnov != "c" and opcnov != "d" and opcnov != "e":
+        opcnov = input("Mal ingresado. Repetir opción. OPCION: ")
+
+#valid salida
+def valid_salida():
+    global salida
+    salida = input()
+    while salida != "0" and salida != "1":
+        salida = input("Mal ingresado. Repetir opción. OPCION: ")
 
 #modulos principales
 #logueo
@@ -70,7 +105,6 @@ def logueo():
        print("Saliendo...")
        return
     
-
 #menu
 def menu():
   pantalla()
@@ -78,6 +112,7 @@ def menu():
   match opc:
       case 1:
         print("Gestión de locales\n")
+        gestion_locales()
       case 2:
        print("En construcción…\n")
        menu()
@@ -98,3 +133,89 @@ def prog_prin():
   logueo()
 
 prog_prin()
+
+#----VALEN
+
+
+
+
+#CREAR LOCALES
+def crear_locales():
+    global ubicacionLocal
+    print ("Creación de locales.")
+    nombreLocal = input("Ingrese un nombre para el local. Para finalizar la creación de locales ingrese * ")
+    while nombreLocal != "*":
+        ubicacionLocal = input("Igrese la ubicacion del local ")
+        select_rubro() 
+        nombreLocal = input("Ingrese un nombre para el local. Para finalizar la creación de locales ingrese * ")
+    comparacion_may()
+    comparacion_min()
+    exh_loc_may()
+    exh_loc_min()
+    print("Para salir pulse 0. Para volver pulse 1.")
+    valid_salida()
+    if salida == 0 :
+        gestion_locales()
+    else:
+        menu()
+
+
+
+
+#GESTION LOCALES 
+def gestion_locales():  
+    pantalla_locales()
+    valid_opc_loc()
+    match opcloc:
+        case "a":
+            crear_locales()
+        case "b":
+            print("\nEn construcción...")
+            gestion_locales()
+        case "c":
+            print("\nEn construcción...")
+            gestion_locales()
+        case "d":
+            menu()
+gestion_locales()
+
+#GESTION NOVEDADES
+def gestion_novedades():
+    pantalla_novedades()
+    valid_opc_nov()
+    match opcnov:
+        case "a":
+            print("\nEn construcción...")
+            gestion_novedades()
+        case "b":
+            print("\nEn construcción...")
+            gestion_novedades()
+        case "c":
+            print("\nEn construcción...")
+            gestion_novedades()
+        case "d":
+            print("\nEn construcción...")
+            gestion_novedades()
+        case "e":
+            menu()
+gestion_novedades()
+
+
+#VALID SELECT RUBRO
+def valid_selec_rubro():
+    global rubroLocal
+    rubroLocal = input()
+    while rubroLocal != 1 and rubroLocal != 2 and rubroLocal != 3:
+        rubroLocal = input("Mal ingresado. Repetir opción. OPCION: ")
+
+#SELECT RUBRO
+def select_rubro():
+    pantalla_rubro()
+    valid_selec_rubro()
+    match rubroLocal:
+        case 1:
+            rub1 = rub1 + 1
+        case 2:
+            rub2 = rub2 + 1
+        case 3:
+            rub3 = rub3 + 1
