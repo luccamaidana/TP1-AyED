@@ -256,7 +256,7 @@ def logueo():
             correcto=1
         else:
             nombre=input("Ingrese el nombre: ")
-            password=input("Ingrese la contraseña: ")
+            password = maskpass.askpass(prompt="Ingresar contraseña: ", mask="*")
             cont=cont+1
     if(nombre==nombreUsuario and password==claveUsuario):
        correcto=1
