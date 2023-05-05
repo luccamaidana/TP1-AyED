@@ -2,7 +2,7 @@
 def inicio():
     global nombreUsuario , claveUsuario , password, cont, opc, opcloc, opcnov, rub1, rub2, rub3, rubroLocal, mayRub, minRub, indu, perfu, comi, nombreLocal,cont,correcto
     correcto=0
-    cont=1
+    cont=0
     nombreUsuario = "admin@shopping.com"		
     claveUsuario = "12345"		
     password = " "				
@@ -20,14 +20,66 @@ def inicio():
     comi = "comida"		
     nombreLocal = " "	
 
+#pantallas
+#pantalla_novedades
+def pantalla_novedades():
+  print("Ingrese una opción a-e")
+  print("a- Crear novedades")
+  print("b- Modificar novedades")
+  print("c- Eliminar novedades ")
+  print("d- Ver reportes")
+  print("e - Volver")
 
+#pantalla
+def pantalla():
+    print("Ingrese una opcion 0-5\n")
+    print("1_ Gestión de locales")
+    print("2_ Crear cuentas de dueños de locales")
+    print("3_ Aprobar / Denegar solicitud de descuento")
+    print("4_ Gestión de novedades")
+    print("5_ Reporte de utilización de descuentos")
+    print("0_ Fin de programa\n")
+
+#validadores
 def valid_opc():
    global opc
    opc = int(input("OPCION: "))
    while opc != 1 and opc != 2 and opc != 3 and opc != 4 and opc != 5 and opc != 0:
       opc = int(input("Mal ingresado. Repetir opción. OPCION: "))
 
+#modulos principales
+#logueo
+def logueo():
+    global correcto,cont
+    nombre=input("Ingrese el nombre: ")
+    password=input("Ingrese la contraseña: ")
+    while cont<2 and correcto!=1:
+        if(nombre==nombreUsuario and password==claveUsuario):
+            correcto=1
+        else:
+            nombre=input("Ingrese el nombre: ")
+            password=input("Ingrese la contraseña: ")
+            cont=cont+1
+    
+    #if(correcto==1):
+       # menu()
+    #else:
+       # print("\nSaliendo...")
+       # return 0
+    
+    
+def entro():
+   if(correcto==1):
+       menu()
+   else:
+       print("Saliendo def...")
+       return
+
+#menu
 def menu():
+  #if(correcto == 0):
+   #  print("\nSaliendo...")
+    # return
   pantalla()
   valid_opc()
   match opc:
@@ -46,9 +98,11 @@ def menu():
         menu()
       case 0:
         print("Saliendo...")
-#menu()
+        return
 
-def prog_princ():
+def prog_prin():
   inicio()
+  logueo()
   menu()
-prog_princ()
+
+prog_prin()
