@@ -51,14 +51,14 @@ def valid_opc():
 #logueo
 def logueo():
     global correcto,cont
-    nombre=input("Ingrese el nombre:")
-    password=input("Ingrese la contraseña:")
+    nombre=input("Ingrese el nombre: ")
+    password=input("Ingrese la contraseña: ")
     while cont!=3 and correcto!=1:
         if(nombre==nombreUsuario and password==claveUsuario):
             correcto=1
         else:
-            nombre=input("Ingrese el nombre:")
-            password=input("Ingrese la contraseña:")
+            nombre=input("Ingrese el nombre: ")
+            password=input("Ingrese la contraseña: ")
             cont=cont+1
     entro()
     
@@ -66,7 +66,7 @@ def entro():
     if(correcto==1):
         menu()
     else:
-        print("se cierra")
+        print("Saliendo...")
 
 #menu
 def menu():
@@ -88,10 +88,11 @@ def menu():
         menu()
       case 0:
         print("Saliendo...")
+        return
 
 def prog_prin():
   inicio()
   logueo()
   menu()
 
-prog_princ()
+prog_prin()
