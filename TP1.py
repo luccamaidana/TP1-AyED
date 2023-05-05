@@ -60,6 +60,7 @@ def logueo():
             nombre=input("Ingrese el nombre: ")
             password=input("Ingrese la contraseña: ")
             cont=cont+1
+    entro()
     
     #if(correcto==1):
        # menu()
@@ -69,11 +70,12 @@ def logueo():
     
     
 def entro():
-   if(correcto==1):
-       menu()
-   else:
+   print(correcto)
+   if(correcto==0):
        print("Saliendo def...")
        return
+   else:
+       menu()
 
 #menu
 def menu():
@@ -86,13 +88,13 @@ def menu():
       case 1:
         print("Gestión de locales\n")
       case 2:
-       print("En construcción…\n")
-       menu()
+        print("En construcción…\n")
+        menu()
       case 3:
-       print("En construcción…\n")
-       menu()
+        print("En construcción…\n")
+        menu()
       case 4:
-         print("Gestión de novedades\n")
+        print("Gestión de novedades\n")
       case 5:
         print("En construcción…\n")
         menu()
