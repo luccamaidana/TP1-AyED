@@ -246,7 +246,11 @@ def select_rubro():
 def logueo():
     global correcto,cont
     nombre=input("Ingrese el nombre: ")
-    password=input("Ingrese la contraseña: ")
+    #def mascara_leer():
+    import maskpass
+    password = maskpass.askpass(prompt="Ingresar contraseña: ", mask="*")
+    #claveUsuario = str(input())
+    #password=input("Ingrese la contraseña: ")
     while cont!=3 and correcto!=1:
         if(nombre==nombreUsuario and password==claveUsuario):
             correcto=1
@@ -293,3 +297,4 @@ def prog_prin():
   logueo()
 
 prog_prin()
+#FIN DEL TRABAJO. UN ORGULLO TRABAJAR CON UD. 10 cupos. creadores:joaquin pacheco sosa, valentin bustos, gaston pennice, lucca maidana
