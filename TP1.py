@@ -32,3 +32,9 @@ def logueo():
             password=input("Ingrese la contraseña:")
             cont=cont+1
     entro()
+    
+def entro():
+    if(correcto==1):
+        menu()
+    else:
+        print("se cierra")
