@@ -6,23 +6,21 @@ def inicio():
     nombreUsuario = "admin@shopping.com"		
     claveUsuario = "12345"		
     password = " "				
-    opc = 1		
+    opc = " "		
     opcloc = " "		
     opcnov = " "		
     rub1 = 0		
     rub2 = 0		
     rub3 = 0		
-    rubroLocal = 0		
+    rubroLocal = " "		
     mayRub = 0		
     minRub = 0		
     indu = 'indumentaria'		
     perfu = "perfumería"		
     comi = "comida"		
     nombreLocal = " "	
-    salida = 0
+    salida = " "
     ubicacionLocal = " "
-
-inicio()
 
 #pantallas
 #pantalla
@@ -73,27 +71,27 @@ def mostrar2_may():
 
 def mostrar3_may():
   global comi, mayRub
-  print("El rubro con mayor cantidad de locales es: ", comi, "con: ", mayRub, "locales.")
+  print("El rubro con mayor cantidad de locales es:", comi, "con:", mayRub, "locales.")
 
 def mostrar1_min():
   global indu, minRub
-  print("El rubro con menor cantidad de locales es: ", indu, "con: ", minRub, "locales.")
+  print("El rubro con menor cantidad de locales es:", indu, "con:", minRub, "locales.")
 
 def mostrar2_min():
   global perfu, minRub
-  print("El rubro con menor cantidad de locales es: ", perfu, "con: ", minRub, "locales.")
+  print("El rubro con menor cantidad de locales es:", perfu, "con:", minRub, "locales.")
 
 def mostrar3_min():
   global comi, minRub
-  print("El rubro con menor cantidad de locales es: ", comi, "con: ", minRub, "locales.")
+  print("El rubro con menor cantidad de locales es:", comi, "con:", minRub, "locales.")
 
 #validadores
 #valid menu
 def valid_opc():
    global opc
-   opc = int(input("\nOPCION: "))
-   while opc != 1 and opc != 2 and opc != 3 and opc != 4 and opc != 5 and opc != 0:
-      opc = int(input("Mal ingresado. Repetir opción. OPCION: "))
+   opc = input("\nOPCION: ")
+   while opc != "1" and opc != "2" and opc != "3" and opc != "4" and opc != "5" and opc != "0":
+      opc = input("Mal ingresado. Repetir opción. OPCION: ")
 
 #valid opc loc
 def valid_opc_loc():
@@ -126,6 +124,20 @@ def valid_salida():
     salida = input("\nOPCION: ")
     while salida != "0" and salida != "1":
         salida = input("Mal ingresado. Repetir opción. OPCION: ")
+
+#valid nombre local
+def valid_nom_loc():
+   global nombreLocal
+   nombreLocal = input("Ingrese un nombre para el local. Para finalizar ingrese *: ")
+   while nombreLocal == "":
+        nombreLocal = input("Mal ingresado. Repetir nombre: ")
+
+#valid ubicacion local
+def valid_ubi_loc():
+   global ubicacionLocal
+   ubicacionLocal = input("Ingrese la ubicación del local: ")
+   while ubicacionLocal == "":
+        ubicacionLocal = input("Mal ingresado. Repetir ubicación: ")
 
 #comparadores
 def comparacion_may():
@@ -202,28 +214,6 @@ def gestion_novedades():
         case "e":
             menu()
 
-#creaciones
-#crear locales
-def crear_locales():
-    global ubicacionLocal
-    print ("\nCreación de locales")
-    nombreLocal = input("Ingrese un nombre para el local. Para finalizar ingrese *: ")
-    while nombreLocal != "*":
-        ubicacionLocal = input("Ingrese la ubicacion del local: ")
-        select_rubro() 
-        nombreLocal = input("Ingrese un nombre para el local. Para finalizar ingrese *: ")
-    comparacion_may()
-    comparacion_min()
-    exh_loc_may()
-    exh_loc_min()
-    print("Para salir pulse 0. Para volver pulse 1.")
-    valid_salida()
-    if salida == 0 :
-        print("\nSaliendo...")
-        return 0
-    else:
-        menu()
-
 #selecciones
 #select rubro
 def select_rubro():
@@ -233,24 +223,40 @@ def select_rubro():
     match rubroLocal:
         case "1":
             rub1 = rub1 + 1
-            crear_locales()
         case "2":
             rub2 = rub2 + 1
-            crear_locales()
         case "3":
             rub3 = rub3 + 1
-            crear_locales()
+
+#creaciones
+#crear locales
+def crear_locales():
+    global ubicacionLocal, nombreLocal
+    print ("\nCreación de locales")
+    valid_nom_loc()
+    while nombreLocal != "*":
+        valid_ubi_loc()
+        select_rubro() 
+        valid_nom_loc()
+    comparacion_may()
+    comparacion_min()
+    exh_loc_may()
+    exh_loc_min()
+    print("\nPara volver a crear locales pulse 0. Para volver al menu principal pulse 1.")
+    valid_salida()
+    if salida == "0" :
+        print("\nCreación de locales")
+        crear_locales()
+    else:
+        menu()
 
 #modulos principales
 #logueo
 def logueo():
     global correcto,cont
     nombre=input("Ingrese el nombre: ")
-    #def mascara_leer():
     import maskpass
     password = maskpass.askpass(prompt="Ingresar contraseña: ", mask="*")
-    #claveUsuario = str(input())
-    #password=input("Ingrese la contraseña: ")
     while cont!=3 and correcto!=1:
         if(nombre==nombreUsuario and password==claveUsuario):
             correcto=1
@@ -271,30 +277,30 @@ def menu():
   pantalla()
   valid_opc()
   match opc:
-      case 1:
+      case "1":
         print("\nGestión de locales")
         gestion_locales()
-      case 2:
+      case "2":
        print("\nEn construcción…")
        menu()
-      case 3:
+      case "3":
        print("\nEn construcción…")
        menu()
-      case 4:
+      case "4":
          print("\nGestión de novedades")
          gestion_novedades()
-      case 5:
+      case "5":
         print("\nEn construcción…")
         menu()
-      case 0:
+      case "0":
         print("\nSaliendo...")
         return 0
 
 def prog_prin():
-  print("          Shopping X\n")
-  print("          Inicio")
+  print("          Shopping")
+  print("           Inicio\n")
   inicio()
   logueo()
 
 prog_prin()
-#FIN DEL TRABAJO. UN ORGULLO TRABAJAR CON UD. 10 cupos. creadores:joaquin pacheco sosa, valentin bustos, gaston pennice, lucca maidana
+#FIN DEL TRABAJO. UN ORGULLO TRABAJAR CON UD. 10 cupos. creadores:joaquin pacheco sosa, valentin bustos, gaston pennice, lucca maidana. la maldicion del selec_rubro
