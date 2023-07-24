@@ -269,7 +269,7 @@ def logueo():
     if(correcto==1):
         menu()
     else:
-       print("\nSaliendo...")
+       print("\nMáximo de intentos permitidos. Saliendo...")
        return 0
     
 #menu
